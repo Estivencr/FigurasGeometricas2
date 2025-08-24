@@ -1,0 +1,50 @@
+﻿<Window x:Class="FigurasGeometricas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FigurasGeometricas"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="502" Width="800">
+    <Grid Height="500">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Panel de controles -->
+        <StackPanel Grid.Column="0" Margin="10" VerticalAlignment="Top">
+            <TextBlock Text="Seleccione Figura:" FontWeight="Bold" Margin="0,0,0,5"/>
+            <ComboBox x:Name="cmbFiguras" SelectedIndex="0" SelectionChanged="cmbFiguras_SelectionChanged">
+                <ComboBoxItem Content="Círculo" />
+                <ComboBoxItem Content="Rectángulo"/>
+                <ComboBoxItem Content="Triángulo"/>
+            </ComboBox>
+
+            <TextBlock Text="Posición X:" Margin="0,10,0,0"/>
+            <TextBox x:Name="txtX" Text="0"/>
+
+            <TextBlock Text="Posición Y:" Margin="0,10,0,0"/>
+            <TextBox x:Name="txtY" Text="0"/>
+
+            <TextBlock x:Name="txbRadio" Text="Radio (si es círculo):" Margin="0,10,0,0"/>
+            <TextBox x:Name="txtRadio" Text="3" IsEnabled="true"/>
+
+            <TextBlock x:Name="txbBase" Text="Base (si es rectángulo/triángulo):" Margin="0,10,0,0"/>
+            <TextBox x:Name="txtBase" Text="5"/>
+
+            <TextBlock x:Name="txbAltura" Text="Altura (si es rectángulo/triángulo):" Margin="0,10,0,0"/>
+            <TextBox x:Name="txtAltura" Text="4"/>
+
+            <Button Content="Dibujar Figura" Margin="0,20,0,0" Click="BtnDibujar_Click"/>
+
+            <TextBlock Text="Escala:" Margin="0,20,0,5"/>
+            <Slider x:Name="sldEscala" Minimum="5" Maximum="50" Value="20" TickFrequency="5" IsSnapToTickEnabled="True"/>
+        </StackPanel>
+
+
+        <!-- Área de dibujo -->
+        <Canvas x:Name="canvasPlano" Grid.Column="1" Background="White"/>
+        <TextBox x:Name="txtRespuesta" HorizontalAlignment="Center" Height="68" Margin="0,382,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="230"/>
+    </Grid>
+</Window>
